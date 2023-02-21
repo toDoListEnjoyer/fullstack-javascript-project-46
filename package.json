@@ -2,7 +2,7 @@
   "name": "@hexlet/code",
   "version": "1.0.0",
   "description": "[![Actions Status](https://github.com/toDoListEnjoyer/fullstack-javascript-project-46/workflows/hexlet-check/badge.svg)](https://github.com/toDoListEnjoyer/fullstack-javascript-project-46/actions)",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -22,7 +22,8 @@
   },
   "dependencies": {
     "commander": "^10.0.0",
-    "eslint-config-airbnb": "^19.0.4"
+    "eslint-config-airbnb": "^19.0.4",
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "eslint": "^8.33.0"
