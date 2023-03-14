@@ -10,8 +10,9 @@ const getFileData = (filepath) => {
 const getFormat = (filepath) => extname(filepath).substring(1);
 
 const gendiff = (filepath1, filepath2, formatName = 'stylish') => {
-  const [data1, data2] = [getFileData(filepath1), getFileData(filepath2)];
-  const [format1, format2] = [getFormat(filepath1), getFormat(filepath2)];
+  const data1 = getFileData(filepath1);
+  const data2 = getFileData(filepath2);
+  // const [format1, format2] = [getFormat(filepath1), getFormat(filepath2)];
   
 
   const keys1 = Object.keys(data1);
