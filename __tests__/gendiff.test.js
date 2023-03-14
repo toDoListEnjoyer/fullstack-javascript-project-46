@@ -1,7 +1,7 @@
 import fs from 'fs';
-import gendiff from '../src/index.js';
-import { fileURLToPath } from 'url';
 import path, { dirname } from 'path';
+import { fileURLToPath } from 'url';
+import gendiff from '../src/index.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -19,9 +19,9 @@ const file6 = './__fixtures__/file2.yml';
 const output1 = readFile('output1.txt');
 
 describe('gendiff tests', () => {
-    test('extensions tests', () => {
-        expect(gendiff(file1, file2)).toEqual(output1);
-        expect(gendiff(file3, file4)).toEqual(output1);
-        expect(gendiff(file5, file6)).toEqual(output1);
-    });
+  test('extensions tests', () => {
+    expect(gendiff(file1, file2)).toEqual(output1);
+    expect(gendiff(file3, file4)).toEqual(output1);
+    expect(gendiff(file5, file6)).toEqual(output1);
+  });
 });
