@@ -25,6 +25,6 @@ describe('gendiff tests', () => {
     expect(gendiff(file1, file2)).toEqual(output1);
     expect(gendiff(file3, file4)).toEqual(output1);
     expect(gendiff(file5, file6)).toEqual(output1);
-    expect(gendiff(file7), file8).toThrow();
+    expect(gendiff(file7, file8)).toThrow();
   });
 });
