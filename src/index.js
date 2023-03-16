@@ -12,7 +12,7 @@ const gendiff = (filepath1, filepath2) => {
   const format2 = getFormat(filepath2);
   const data1 = parse(readFile(filepath1), format1);
   const data2 = parse(readFile(filepath2), format2);
-  
+
   const keys1 = Object.keys(data1);
   const keys2 = Object.keys(data2);
   const keys = _.union(keys1, keys2).sort();
