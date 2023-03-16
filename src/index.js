@@ -1,18 +1,17 @@
 import fs from 'fs';
 import _ from 'lodash';
-// import { extname } from 'path';
+import { extname } from 'path';
+import parse from './parsers.js';
 
-const getFileData = (filepath) => {
-  const data = fs.readFileSync(filepath, 'utf-8');
-  return JSON.parse(data);
-};
+const readFile = (filepath) => fs.readFileSync(filepath, 'utf-8');
 
-// const getFormat = (filepath) => extname(filepath).substring(1);
+const getFormat = (filepath) => extname(filepath).substring(1);
 
 const gendiff = (filepath1, filepath2) => {
-  const data1 = getFileData(filepath1);
-  const data2 = getFileData(filepath2);
-  // const [format1, format2] = [getFormat(filepath1), getFormat(filepath2)];
+  const data1 = parse(readFile(filepath1));
+  const data2 = parse(readFile(filepath2));
+  const format1 = getFormat(filepath1);
+  const format2 = getFormat(filepath2);
 
   const keys1 = Object.keys(data1);
   const keys2 = Object.keys(data2);
