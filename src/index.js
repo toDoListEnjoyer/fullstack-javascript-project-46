@@ -1,6 +1,6 @@
 import fs from 'fs';
 import _ from 'lodash';
-import { extname } from 'path';
+// import { extname } from 'path';
 
 const getFileData = (filepath) => {
   const data = fs.readFileSync(filepath, 'utf-8');
@@ -20,7 +20,7 @@ const gendiff = (filepath1, filepath2) => {
 
   const result = ['{\n'];
 
-  keys.forEach(key => {
+  keys.forEach((key) => {
     if (!Object.hasOwn(data1, key)) {
       result.push(`  + ${key}: ${data2[key]}\n`);
     } else if (!Object.hasOwn(data2, key)) {
@@ -32,7 +32,6 @@ const gendiff = (filepath1, filepath2) => {
     }
   });
   result.push('}');
-  
   return result.join('');
 };
 
