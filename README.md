@@ -22,3 +22,10 @@ Options:
   -f, --format <type>  output format
   -h, --help           display help for command
 ```
+
+## Usage example
+
+### json files
+
+
+### yml files
