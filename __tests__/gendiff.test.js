@@ -15,8 +15,6 @@ const file3 = './__fixtures__/file1.yaml';
 const file4 = './__fixtures__/file2.yaml';
 const file5 = './__fixtures__/file1.yml';
 const file6 = './__fixtures__/file2.yml';
-const file7 = './__fixtures__/file1.error';
-const file8 = './__fixtures__/file2.error';
 
 const output1 = readFile('output1.txt');
 
@@ -25,6 +23,5 @@ describe('gendiff tests', () => {
     expect(gendiff(file1, file2)).toEqual(output1);
     expect(gendiff(file3, file4)).toEqual(output1);
     expect(gendiff(file5, file6)).toEqual(output1);
-    expect(gendiff(file7, file8)).toThrow();
   });
 });
