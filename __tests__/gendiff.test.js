@@ -25,14 +25,14 @@ const outputFlat = readFile('output-flat.txt');
 const outputRec = readFile('output-rec.txt');
 
 describe('gendiff tests', () => {
-  test('recursive structure test', () => {
-    expect(gendiff(file1Rec, file2Rec)).toEqual(outputRec);
-    expect(gendiff(file3Rec, file4Rec)).toEqual(outputRec);
-  });
-
   test('extensions tests', () => {
     expect(gendiff(file1, file2)).toEqual(outputFlat);
     expect(gendiff(file3, file4)).toEqual(outputFlat);
     expect(gendiff(file5, file6)).toEqual(outputFlat);
+  });
+
+  test('recursive structure test', () => {
+    expect(gendiff(file1Rec, file2Rec)).toEqual(outputRec);
+    expect(gendiff(file3Rec, file4Rec)).toEqual(outputRec);
   });
 });
