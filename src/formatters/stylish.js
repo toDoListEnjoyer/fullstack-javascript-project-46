@@ -23,15 +23,15 @@ const mapping = {
   },
   nested: ({ key, children }, depth, iter) => {
     const output = children.flatMap((node) => mapping[node.type](node, depth + 1, iter));
-    return `${indent(depth)}  ${key}: {\n${output.join('\n')}\n  ${indent(depth)}}`;
+    return `${stringifyKey(depth, ' ', key)} {\n${output.join('\n')}\n  ${indent(depth)}}`;
   },
   added: (node, depth) => `${stringifyKey(depth, '+', node.key)}${stringifyValue(node.value, depth, mapping)}`,
   deleted: (node, depth) => `${stringifyKey(depth, '-', node.key)}${stringifyValue(node.value, depth, mapping)}`,
   unchanged: (node, depth) => `${stringifyKey(depth, ' ', node.key)}${stringifyValue(node.value, depth, mapping)}`,
   changed: (node, depth) => {
     const { key, value1, value2 } = node;
-    const data1 = `${indent(depth)}- ${key}:${stringifyValue(value1, depth, mapping)}`;
-    const data2 = `${indent(depth)}+ ${key}:${stringifyValue(value2, depth, mapping)}`;
+    const data1 = `${stringifyKey(depth, '-', key)}${stringifyValue(value1, depth, mapping)}`;
+    const data2 = `${stringifyKey(depth, '+', key)}${stringifyValue(value2, depth, mapping)}`;
 
     return [data1, data2];
   },
