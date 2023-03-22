@@ -16,3 +16,5 @@ compare-flat-json:
 compare-flat-yml:
 	gendiff  './__fixtures__/file1.yml' './__fixtures__/file2.yml'
 
+compare-rec-json:
+	gendiff  './__fixtures__/file1-rec.json' './__fixtures__/file2-rec.json'

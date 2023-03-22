@@ -16,9 +16,20 @@ const file4 = './__fixtures__/file2.yaml';
 const file5 = './__fixtures__/file1.yml';
 const file6 = './__fixtures__/file2.yml';
 
+const file1Rec = './__fixtures__/file1-rec.json';
+const file2Rec = './__fixtures__/file2-rec.json';
+const file3Rec = './__fixtures__/file1-rec.yaml';
+const file4Rec = './__fixtures__/file2-rec.yaml';
+
 const outputFlat = readFile('output-flat.txt');
+const outputRec = readFile('output-rec.txt');
 
 describe('gendiff tests', () => {
+  test('recursive structure test', () => {
+    expect(gendiff(file1Rec, file2Rec)).toEqual(outputRec);
+    expect(gendiff(file3Rec, file4Rec)).toEqual(outputRec);
+  });
+
   test('extensions tests', () => {
     expect(gendiff(file1, file2)).toEqual(outputFlat);
     expect(gendiff(file3, file4)).toEqual(outputFlat);
