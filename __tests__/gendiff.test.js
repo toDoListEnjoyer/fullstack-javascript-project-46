@@ -38,7 +38,7 @@ describe('gendiff tests', () => {
   });
 
   test('plain format test', () => {
-    expect(gendiff(file1Rec, file2Rec)).toEqual(outputPlain);
-    expect(gendiff(file3Rec, file4Rec)).toEqual(outputPlain);
+    expect(gendiff(file1Rec, file2Rec, 'plain')).toEqual(outputPlain);
+    expect(gendiff(file3Rec, file4Rec, 'plain')).toEqual(outputPlain);
   });
 });
