@@ -23,6 +23,7 @@ const file4Rec = './__fixtures__/file2-rec.yaml';
 
 const outputFlat = readFile('output-flat.txt');
 const outputRec = readFile('output-rec.txt');
+const outputPlain = readFile('output-plain.txt');
 
 describe('gendiff tests', () => {
   test('extensions tests', () => {
@@ -34,5 +35,10 @@ describe('gendiff tests', () => {
   test('recursive structure test', () => {
     expect(gendiff(file1Rec, file2Rec)).toEqual(outputRec);
     expect(gendiff(file3Rec, file4Rec)).toEqual(outputRec);
+  });
+
+  test('plain format test', () => {
+    expect(gendiff(file1Rec, file2Rec)).toEqual(outputPlain);
+    expect(gendiff(file3Rec, file4Rec)).toEqual(outputPLain);
   });
 });
