@@ -1,31 +1,21 @@
 import fs from 'fs';
-import _ from 'lodash';
+import { extname } from 'path';
+import parse from './parsers.js';
+import buildTree from './buildTree.js';
+import format from './formatters/index.js';
 
-const getFileData = (filepath) => {
-  const data = fs.readFileSync(filepath, 'utf-8');
-  return JSON.parse(data);
-};
+const readFile = (filepath) => fs.readFileSync(filepath, 'utf-8');
 
-const gendiff = (filepath1, filepath2) => {
-  const [data1, data2] = [getFileData(filepath1), getFileData(filepath2)];
-  const keys1 = Object.keys(data1);
-  const keys2 = Object.keys(data2);
-  const keys = _.union(keys1, keys2).sort();
+const getExt = (filepath) => extname(filepath).substring(1);
 
-  const result = ['{\n'];
-  for (const key of keys) {
-    if (!Object.hasOwn(data1, key)) {
-      result.push(`  + ${key}: ${data2[key]}\n`);
-    } else if (!Object.hasOwn(data2, key)) {
-      result.push(`  - ${key}: ${data1[key]}\n`);
-    } else if (data1[key] !== data2[key]) {
-      result.push(`  - ${key}: ${data1[key]}\n  + ${key}: ${data2[key]}\n`);
-    } else {
-      result.push(`    ${key}: ${data1[key]}\n`);
-    }
-  }
-  result.push('\r}');
-  return result.join('');
+const gendiff = (filepath1, filepath2, formatName = 'stylish') => {
+  const ext1 = getExt(filepath1);
+  const ext2 = getExt(filepath2);
+  const data1 = parse(readFile(filepath1), ext1);
+  const data2 = parse(readFile(filepath2), ext2);
+
+  const tree = buildTree(data1, data2);
+  return format(tree, formatName);
 };
 
 export default gendiff;
