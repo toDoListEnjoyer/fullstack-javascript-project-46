@@ -6,7 +6,6 @@ const stringifyKey = (depth, symbol, key) => `${indent(depth)}${symbol} ${key}:`
 
 const stringifyValue = (data, depth, mapping) => {
   if (!_.isObject(data)) {
-    if (data === '') return data;
     return ` ${String(data)}`;
   }
 
