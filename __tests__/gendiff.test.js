@@ -24,6 +24,7 @@ const file4Rec = './__fixtures__/file2-rec.yaml';
 const outputFlat = readFile('output-flat.txt');
 const outputRec = readFile('output-rec.txt');
 const outputPlain = readFile('output-plain.txt');
+const outputJson = readFile('output-json.txt');
 
 describe('gendiff tests', () => {
   test('extensions tests', () => {
@@ -40,5 +41,10 @@ describe('gendiff tests', () => {
   test('plain format test', () => {
     expect(gendiff(file1Rec, file2Rec, 'plain')).toEqual(outputPlain);
     expect(gendiff(file3Rec, file4Rec, 'plain')).toEqual(outputPlain);
+  });
+
+  test('json format test', () => {
+    expect(gendiff(file1Rec, file2Rec, 'json')).toEqual(outputJson);
+    expect(gendiff(file3Rec, file4Rec, 'json')).toEqual(outputJson);
   });
 });

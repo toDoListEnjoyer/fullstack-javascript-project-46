@@ -4,7 +4,7 @@ import formatPlain from './plain.js';
 const formatters = {
   stylish: formatStylish,
   plain: formatPlain,
-  json: '',
+  json: JSON.stringify,
 };
 
 export default (ast, type) => {

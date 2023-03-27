@@ -21,3 +21,6 @@ compare-rec-json:
 
 plain-format:
 	gendiff -f plain './__fixtures__/file1-rec.json' './__fixtures__/file2-rec.json'
+
+json-format:
+	gendiff -f json './__fixtures__/file1-rec.json' './__fixtures__/file2-rec.json'
